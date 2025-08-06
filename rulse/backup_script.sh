@@ -22,6 +22,10 @@ warning() {
     echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
+# Переходим в родительскую директорию проекта (где должен быть Git репозиторий)
+PROJECT_DIR="$(dirname "$(dirname "$(readlink -f "$0")")")"
+cd "$PROJECT_DIR"
+
 # Проверяем, находимся ли мы в Git репозитории
 if [ ! -d ".git" ]; then
     error "Не найден Git репозиторий. Инициализируем новый..."
