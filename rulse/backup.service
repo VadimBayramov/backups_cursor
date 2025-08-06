@@ -1,0 +1,14 @@
+[Unit]
+Description=Git Backup Service
+After=network.target
+
+[Service]
+Type=oneshot
+User=diamond
+WorkingDirectory=/home/diamond/app/cursor_ai/Progects
+ExecStart=/home/diamond/app/cursor_ai/Progects/rulse/backup_script.sh
+StandardOutput=append:/home/diamond/app/cursor_ai/Progects/rulse/backup.log
+StandardError=append:/home/diamond/app/cursor_ai/Progects/rulse/backup.log
+
+[Install]
+WantedBy=multi-user.target 
